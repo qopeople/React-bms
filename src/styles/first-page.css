@@ -1,0 +1,37 @@
+.yy-row-1 {
+    display: flex;
+}
+
+.yy-row-1 .yy-col-1 {
+    flex: 1;
+    height: 100px;
+    max-width: 25%;
+    margin: 17px;
+    line-height: 100px;
+    background: whitesmoke;
+}
+.yy-row-1 .yy-col-1 .yy-dec-box{
+    display: inline-table;
+    width: 50%;
+    text-align: center;
+   
+}
+.yy-row-1 .yy-col-1 .yy-dec2,.yy-row-1 .yy-col-1 .yy-dec1 {
+    color: #c6cad6;
+    line-height: 0px;
+    text-align: center;
+    margin-left: 30%;
+}
+
+.yy-row-1 .yy-col-1 .yy-dec1 {
+    font-size: 30px;
+    font-weight: 500;
+}
+.yy-line3{
+    position: absolute !important;
+    /* left: 900px; */
+    left: 792px;
+    background-color: #a9d96c;
+    top: 200px;
+    color:#fffff
+}
