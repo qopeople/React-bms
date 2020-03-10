@@ -1,12 +1,20 @@
-import React from 'react';
+import React from 'react'; //为了能够解析组件用法
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
+import 'antd/dist/antd.css';  
+import {BrowserRouter , Router , Route,Switch ,Redirect} from 'react-router-dom';
+import Login from './pages/Login';
+import HomeLayout from  './pages/HomeLayout';
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render( (
+    <BrowserRouter>
+     
+        <Route component = {Login} path="/"  exact >  
+        </Route>
+        <Route component = {HomeLayout} path="/mainPage" >
+        </Route> 
+     
+        </BrowserRouter>
+
+), document.getElementById('root'));
