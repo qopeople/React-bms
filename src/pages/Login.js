@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Input, Button ,Modal} from "antd";
-import { UserOutlined ,ExclamationCircleOutlined} from "@ant-design/icons";
+import { Input, Button, Modal } from "antd";
+import { UserOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 import "../styles/login-page.css";
 import axios from "axios";
 import "../request/mock";
@@ -17,40 +17,43 @@ class Login extends Component {
     };
   }
   checkLogin() {
-      let username = this.state.username;
-      let password = this.state.password;
+    let username = this.state.username;
+    let password = this.state.password;
     //   let history = useHistory();
-      axios.get("/login",{dataType:'json'}).then(res=>{
-          if(res.data.userdata.username == username && res.data.userdata.password == password){
-            let secondsToGo = 2;
-            const modal = Modal.success({
-              title: '提示',
-              content: `用户信息确认完成！在 ${secondsToGo} s 跳转主界面.`,
-            });
-            const timer = setInterval(() => {
-              secondsToGo -= 1;
-              modal.update({
-                content: `用户信息确认完成！在 ${secondsToGo} s 跳转主界面.`,
-              });
-            }, 1000);
-            setTimeout(() => {
-              clearInterval(timer);
-              modal.destroy();
-            //   this.content.push('')
-            this.props.history.replace("/mainPage")  //
-            }, secondsToGo * 1000);
-          }
-      })
+    axios.get("/login", { dataType: "json" }).then(res => {
+      if (
+        res.data.userdata.username == username &&
+        res.data.userdata.password == password
+      ) {
+        let secondsToGo = 2;
+        const modal = Modal.success({
+          title: "提示",
+          content: `用户信息确认完成！在 ${secondsToGo} s 跳转主界面.`
+        });
+        const timer = setInterval(() => {
+          secondsToGo -= 1;
+          modal.update({
+            content: `用户信息确认完成！在 ${secondsToGo} s 跳转主界面.`
+          });
+        }, 1000);
+        setTimeout(() => {
+          clearInterval(timer);
+          modal.destroy();
+          //   this.content.push('')
+          this.props.history.replace("/mainPage"); //
+        }, secondsToGo * 1000);
+      }
+    });
   }
   inputValue1(e) {
-      this.setState({
-        username:e.target.value
-      })
+    this.setState({
+      username: e.target.value
+    });
   }
   inputValue2(e) {
     this.setState({
-        password:e.target.value
-    })
+      password: e.target.value
+    });
   }
   componentDidMount() {
     // axios.get('/mock',{dataType:'json'}).then(res=>{
@@ -67,7 +70,6 @@ class Login extends Component {
         <img></img>
         <div className="yybox">
           <div className="yy-input">
-            {" "}
             <Input
               size="large"
               placeholder="请输入用户名"
